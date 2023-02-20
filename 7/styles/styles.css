@@ -128,16 +128,13 @@ img {
   position: relative;
 }
 
-.btn-line span{
-  position: relative;
-  z-index: 1;
-}
-
 .btn-line::before {
   content: "";
   position: absolute;
+  top: 50%;
   left: 0;
-  top: 16px;
+  transform: translateY(-50%);
+  z-index: -1;
   width: 100%;
   height: 8px;
   background-color: var(--yellow);
@@ -457,10 +454,11 @@ img {
 
 .slider__btn-descr {
   display: inline-block;
-  margin-bottom: 40px;
+  margin-bottom: 49px;
   padding-top: 10px;
-  padding-bottom: 19px;
+  padding-bottom: 10px;
   min-width: 220px;
+  max-width: 350px;
 }
 
 .slider__descr-list {
@@ -585,6 +583,7 @@ img {
 .delivery__btn {
   padding: 10px;
   width: 160px;
+  z-index: 0;
 }
 
 .delivery__btn:not(:last-child) {
@@ -714,6 +713,7 @@ img {
   display: inline-block;
   padding: 10px;
   min-width: 270px;
+  max-width: 350px;
 }
 
 .contacts {
@@ -761,6 +761,7 @@ img {
   display: inline-block;
   padding: 10px;
   min-width: 259px;
+  max-width: 350px;
 }
 
 /* MAILING */
@@ -844,28 +845,38 @@ img {
 .footer-container {
   display: grid;
   grid-template-columns:  1fr max-content 1fr;
-  grid-template-rows: auto auto auto;
   column-gap: 35px;
+  row-gap: 20px;
   padding-top: 62px;
   padding-bottom: 62px;
 }
 
-.footer__logo {
+.footer-container::before {
+  content: "";
   grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  grid-row: 3 / 4;
   display: block;
-  min-height: 71px;
+  align-self: center;
+  width: 80px;
+  height: 7px;
+  background-color: var(--color-footer-line);
+}
+
+.footer__logo {
+  grid-column: 1 / -1;
+  display: block;
+  justify-self: start;
+  margin-bottom: 11px;
 }
 
 .footer__address-descr {
   grid-column: 1 / 2;
-  grid-row: 2 / 3;
 }
 
 .footer__address-text {
   margin-top: 0;
   margin-bottom: 0;
-  min-height: 86px;
+  min-height: 66px;
   max-width: 240px;
   font-size: 16px;
   line-height: 20px;
@@ -873,18 +884,8 @@ img {
   color: var(--color-white);
 }
 
-.footer__line {
-  grid-column: 1 / 2;
-  grid-row: 3 / 4;
-  width: 80px;
-  height: 7px;
-  background-color: var(--color-footer-line);
-  transform: translateY(17px);
-}
-
 .footer__list {
   grid-column: 2 / 3;
-  grid-row: 2 / 3;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -900,7 +901,6 @@ img {
 
 .social-list {
   grid-column: 2 / 3;
-  grid-row: 3 / 4;
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -912,7 +912,7 @@ img {
 
 .social-list__link {
   position: relative;
-  display: inline-block;
+  display: block;
   width: 40px;
   height: 40px;
 }
@@ -948,27 +948,26 @@ img {
 
 .footer__address-tel {
   grid-column: 3 / 4;
-  grid-row: 2 / 3;
+  justify-self: end;
 }
 
 .footer__address-link {
   display: block;
   padding-top: 8px;
   padding-bottom: 8px;
+  margin-left: auto;
   font-style: normal;
   font-size: 16px;
   line-height: 20px;
   text-decoration-line: underline;
-  text-align: end;
   color: var(--color-white);
 }
 
 .footer__logo-academy {
   grid-column: 3 / 4;
-  grid-row: 3 / 4;
+  justify-self: end;
   display: block;
   padding-top: 4px;
-  text-align: end;
 }
 
 /* CATALOG-PAGE */
